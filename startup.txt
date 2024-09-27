@@ -1,0 +1,239 @@
+*title The Ladder: An Esports Story
+*author Matt
+*scene_list
+    sceneFlowController
+
+*comment CONSTANTS
+*comment Skill stat names
+*create mechanicsStatName "Mechanics"
+*create teamfightingStatName "Teamfighting"
+*create shotcallingStatName "Shotcalling"
+*create strategyStatName "Strategy"
+*create laningStatName "Laning"
+*create roamingStatName "Roaming"
+*create charismaStatName "Charisma"
+
+*comment Personality stat names
+*create calmStatName "Calm"
+*create hotheadedStatName "Hotheaded"
+*create outgoingStatName "Outgoing"
+*create introvertedStatName "Introverted"
+*create kindStatName "Kind"
+*create cruelStatName "Cruel"
+*create jokesterStatName "Jokester"
+*create seriousStatName "Serious"
+*create competitiveStatName "Competitive"
+*create relaxedStatName "Relaxed"
+
+*comment Party member enums (for use when setting/checking flags)
+*create tEnum 1
+*create eEnum 2
+*create rEnum 3
+*create lEnum 4
+
+*comment ROLE ENUMS
+*create carryEnum 0
+*create midEnum 1
+*create soloEnum 2
+*create junglerEnum 3
+*create supportEnum 4
+
+*comment NAMES/GENDER/PRONOUNS
+*comment PLAYER
+*create name "Unknown"
+*create lastName "Unknown"
+*create gender "Unknown"
+*create he "Unknown"
+*create him "Unknown"
+*create his "Unknown"
+*create hisHers "Unknown"
+*create heHas "Unknown"
+*create boy "Unknown"
+*create man "Unknown"
+*create mr "Unknown"
+*create son "Unknown"
+*create brother "Unknown"
+*create guy "Unknown"
+*create gentleman "Unknown"
+*create sir "Unknown"
+*create master "Unknown"
+
+*comment T
+*create tName "T"
+*create tLastName "Bynes"
+*create tGender "Unknown"
+*create tHe "Unknown"
+*create tHim "Unknown"
+*create tHis "Unknown"
+*create tHisHers "Unknown"
+*create tHeHas "Unknown"
+*create tBoy "Unknown"
+*create tMan "Unknown"
+*create tMr "Unknown"
+*create tSon "Unknown"
+*create tBrother "Unknown"
+*create tGuy "Unknown"
+*create tGentleman "Unknown"
+
+*comment E
+*create eName "E"
+*create eLastName "Rai"
+*create eGender "Unknown"
+*create eHe "Unknown"
+*create eHim "Unknown"
+*create eHis "Unknown"
+*create eHisHers "Unknown"
+*create eHeHas "Unknown"
+*create eBoy "Unknown"
+*create eMan "Unknown"
+*create eMr "Unknown"
+*create eSon "Unknown"
+*create eBrother "Unknown"
+*create eGuy "Unknown"
+*create eGentleman "Unknown"
+
+*comment R
+*create rName "R"
+*create rLastName "Anaya"
+*create rGender "Unknown"
+*create rHe "Unknown"
+*create rHim "Unknown"
+*create rHis "Unknown"
+*create rHisHers "Unknown"
+*create rHeHas "Unknown"
+*create rBoy "Unknown"
+*create rMan "Unknown"
+*create rMr "Unknown"
+*create rSon "Unknown"
+*create rBrother "Unknown"
+*create rGuy "Unknown"
+*create rGentleman "Unknown"
+
+*comment L
+*create lName "L"
+*create lLastName "Teshome"
+*create lGender "Unknown"
+*create lHe "Unknown"
+*create lHim "Unknown"
+*create lHis "Unknown"
+*create lHisHers "Unknown"
+*create lHeHas "Unknown"
+*create lBoy "Unknown"
+*create lMan "Unknown"
+*create lMr "Unknown"
+*create lSon "Unknown"
+*create lBrother "Unknown"
+*create lGuy "Unknown"
+*create lGentleman "Unknown"
+
+*comment PLAYER APPEARANCE
+*create hairColour "Unknown"
+*comment Hair length
+*comment 0 = shaved
+*comment 1 = short
+*comment 2 = medium
+*comment 3 = shoulder-length
+*comment 4 = very long
+*create hairLength 0
+*comment Hair type
+*comment 0 = Straight
+*comment 1 = Wavy
+*comment 2 = Curly
+*comment 3 = Coiled
+*create hairType 0
+
+*comment PLAYER SKILL STATS
+*create mechanics 0
+*create teamfighting 0
+*create shotcalling 0
+*create strategy 0
+*create laning 0
+*create roaming 0
+*create charisma 0
+*create highestSkillStatName "Unknown"
+*create highestSkillStatVal 0
+
+*comment PLAYER PERSONALITY STATS
+*comment Personality stats will never inherently lock you out of a choice, but they do alter the ways a scene will play out, and might affect other character's opinion of you.
+*comment Paired with hotheaded
+*create calm 50
+*comment Paired with Introverted
+*create outgoing 50
+*comment Paired with Cruel
+*create kind 50
+*comment Paired with Serious
+*create jokester 50
+*comment Paired with Relaxed
+*create competitive 50
+*create highestPersonalityStatName "Unknown"
+*create highestPersonalityStatVal 0
+
+*comment PLAYER BACKGROUND STATS
+*create hadSomeClipsGoViral false
+*create haveOnlineKoreanFriends false
+*comment 0 = played since beta
+*comment 1 = new player
+*comment 2 = played for a while
+*create whenStartedPlaying 0
+
+*comment PLAYER CAREER STATS
+*create peakLadderRank 92
+*create currentLadderRank 117
+*create professionalism 50
+*create fame 0
+*create fanOpinion 50
+*create grades 50
+*create position 0
+*create wasOneTrick false
+*create oneTrickChampion "Unknown"
+
+*comment PLAYER ORIENTATION
+*create mascAttracted 0
+*create femAttracted 0
+
+*comment PLAYER RELATIONSHIP STATS
+*comment T
+*create tFriendship 50
+*create tLove 0
+*create tSelfCare 0
+*create tRelationshipLead 50
+*create tHaveAttemptedReconciliation false
+*create tHaveReconciled false
+
+*comment E
+*create eFriendship 50
+*create eLove 0
+*create eVulnerability 0
+*create eRelationshipLead 50
+*create eHaveAttemptedReconciliation false
+*create eHaveReconciled false
+
+*comment R
+*create rFriendship 50
+*create rLove 0
+*create rSelfConfidence 0
+*create rRelationshipLead 50
+*create rHaveAttemptedReconciliation false
+*create rHaveReconciled false
+*comment rChildhoodConnection
+*comment 0 = Best friends
+*comment 1 = Neighbours, not close
+*comment 2 = Friend of a friend, you never liked them
+*create rChildhoodConnection 0
+
+*comment L
+*create lDisabledRomance false
+*create lFriendship 50
+*create lLove 0
+*create lOvercomeInsecurity 0
+*create lRelationshipLead 50
+*create lHaveAttemptedReconciliation false
+*create lHaveReconciled false
+
+*comment GLOBAL SETTINGS
+*create showChecks false
+
+*comment STORY TRACKING
+*create initialMorningChoice 0
+
+*finish

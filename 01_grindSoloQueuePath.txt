@@ -1,0 +1,50 @@
+*comment 0 = easy, 1 = normal, 2 = hard
+*temp gameDifficulty 1
+
+You launch Ladder and start queueing for a game before going to brush your teeth — you're all too used to the wait times for high elo games this early in the morning, and know you've got at least 
+five minutes to kill. 
+
+Murphy's law, of course — today, of all days, your queue pops unusually quickly. You see it the minute you open the door back to your bedroom, and nearly trip over your feet trying to get to 
+your computer and accept the game before it times out.
+
+Better hope Dad didn't hear that.
+
+*page_break
+*gosub_scene playerProfileCreation profileCreation_Role
+You load into the hero select lobby, and recognize a few names on your team. There's a regular stable of top players that tend to be online this early, and it's not unusual for you to run into the 
+same people over and over again.
+
+*gosub_scene playerProfileCreation profileCreation_PickBanExplainer
+One of your teammates 'hovers' Lotv — the new hero that just released last night — indicating that they're planning to lock her in. This immediately sets off one of your other teammates, who starts 
+spamming chat and demanding that they don't lock in a hero they've never played before in ranked.
+
+It's not the nicest way to start your morning games. Your chances of winning definitely go down if one of your teammates locks in this new hero that they have no experience with.
+
+*choice
+	#I mute both of them and resign myself to having to hard carry.@{showChecks [+[i]Mechanics[/i]], -[i]Charisma[/i]}
+		*gosub_scene playerStatController increaseCalm 5
+		*gosub_scene playerStatController increaseMechanics 5
+		*gosub_scene playerStatController decreaseCharisma 5
+	#I try to convince my teammate not lock in the new hero.@{showChecks [+[i]Charisma[/i], easier game]}
+		*gosub_scene playerStatController increaseOutgoing 5
+		*gosub_scene playerStatController increaseCharisma 5
+		*set gameDifficulty 0
+	#I tell my other teammate to back off and let people play what they want.@{showChecks [+[i]Charisma[/i], +[i]Strategy[/i], harder game]}
+		*gosub_scene playerStatController increaseOutgoing 5
+		*gosub_scene playerStatController increaseCharisma 5
+		*gosub_scene playerStatController increaseStrategy 5
+		*set gameDifficulty 2
+	#I crack a joke to defuse the tension.@{showChecks [++[i]Charisma[/i]]}
+		*gosub_scene playerStatController increaseCharisma 10
+		*gosub_scene playerStatController increaseJokester 5
+		*gosub_scene playerStatController increaseOutgoing 5
+	#I ban Lotv, preventing my teammate from picking her.@{showChecks [-[i]Charisma[/i], easier game]}
+		*gosub_scene playerStatController decreaseCharisma 5
+		*gosub_scene playerStatController increaseCruel 5
+		*set gameDifficulty 0
+	#I pick Lotv myself, pissing off everyone.@{showChecks [--[i]Charisma[/i], +[i]Strategy[/i], +[i]Mechanics[/i], harder game]}
+		*gosub_scene playerStatController decreaseCharisma 10
+		*gosub_scene playerStatController increaseStrategy 5
+		*gosub_scene playerStatController increaseMechanics 5
+		*gosub_scene playerStatController increaseCruel 5
+		*set gameDifficulty 2

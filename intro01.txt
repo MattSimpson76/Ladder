@@ -1,0 +1,125 @@
+Your alarm goes off while you're in the shower. You stumble out onto the bathmat in an early-morning stupor, flailing for a towel to wrap around yourself. It's an awkward hop, skip and jump 
+back to your bedroom as you try to weigh speed and the desire to not track water down the hallway.
+
+It's all for nothing in the end. You bump into your very grumpy looking dad on his way out of your room, and only belatedly process the fact that you can't hear your alarm anymore.
+
+He somehow manages to give you an intimidating staredown through sleepy, half-closed eyes. "It's five in the morning," he growls.
+
+"Sorry," you say. "Forgot to turn off my alarm when I got up."
+
+Your dad shakes his head. "Just keep it down," he says, shuffling past you.
+
+You nod, letting him move past you and slipping into the privacy of your bedroom.
+
+You hope your dad isn't going to make a [i]thing[/i] of this. Truth is, you've been getting up this early for months now.
+
+*fake_choice
+    #It gives you extra time before school for solo practice.
+        *gosub_scene playerStatController increaseMechanics 10
+        *gosub_scene playerStatController increaseFame 1
+        *set hadSomeClipsGoViral true
+        *set initialMorningChoice 0
+        Your mechanics have always been solid, and you've never struggled to hold your own in high elo games. Lately though, you've been putting in the effort to get up early and 
+        grind solo queue, and it's starting to pay off. Anyone can win a fight when their team's ahead in gold, or they have a favourable hero matchup, but recently you've noticed that you're 
+        starting to be able to clutch out situations you're 'expected' to lose with raw mechanical skill. 
+
+        You've even been lucky enough to pull off some of your flashiest outplays in games with popular streamers, and had a few clips go viral in the community.
+    #It's the only time of day you can queue with your Korean friends.
+        *gosub_scene playerStatController increaseCharisma 5
+        *gosub_scene playerStatController increaseTeamfighting 5
+        *set haveOnlineKoreanFriends true
+        *set initialMorningChoice 1
+        Sometimes it seems a little crazy even to you, that some of your best friends are people you've never even met, living on the other side of the planet. You met through Pelican, who started 
+        playing on the US servers while visiting family here during the holidays. The two of you hit it off during a solo queue game, and started duoing. When he went back to Korea, he introduced 
+        you to the rest of his friend group, and you've been playing together ever since. The ping is pretty rough for you, playing on Korean servers, but the quality of the games tends to be better 
+        than in the US, and getting to play high-level games with a consistent team has taught you a lot.
+        
+        Your friends are all great at the game, of course, but one of them — Neph — is truly incredible. The rest of you are pretty convinced they'll get pro offers as soon as they turn eighteen. If 
+        things go as you hope this season, maybe you'll be right there with them one day.
+    #You use the time before school to VOD review last night's games.
+        *gosub_scene playerStatController increaseStrategy 5
+        *gosub_scene playerStatController increaseMechanics 5
+        *set initialMorningChoice 2
+        Quantity of practice is less important than [i]usefulness[/i] of practice — a lot of players don't get that. Rather than spend your extra time grinding out more solo queue, you analyze 
+        your recent games, looking for areas where you can improve both your micro and your macro game. It's definitely helped you improve your mechanics, but you've really noticed the improvement 
+        in your game sense as a whole.
+        
+        Getting better at the game is its own reward, of course, but being disciplined about VOD review is also an excellent habit to get into if you want to go pro. 
+    #You need the extra time to fit schoolwork in around playing Ladder.
+        *gosub_scene playerStatController increaseGrades 20
+        *set initialMorningChoice 3
+        Sleep is the first thing to get cut when there aren't enough hours in the day, and you just don't have the time to go to school, grind Ladder, do your homework [i]and[/i] get a full 
+        eight hours. A lot of players in your shoes — maybe most, even — would just let their grades slip, but you've carved out this time in the morning to stay on top of your schoolwork. It's not 
+        glamorous, but if nothing else it keeps your parents off your back.
+    #You just enjoy it. There's nothing worse than wasting hours in the day.
+        *gosub_scene playerStatController increaseCompetitive 5
+        *gosub_scene playerStatController increaseMechanics 2
+        *gosub_scene playerStatController increaseLaning 2
+        *gosub_scene playerStatController increaseRoaming 2
+        *gosub_scene playerStatController increaseStrategy 2
+        *gosub_scene playerStatController increaseTeamfighting 2
+        *gosub_scene playerStatController increaseGrades 5
+        *set initialMorningChoice 4
+        You've come to realise lately that you actually just enjoy being an early riser, getting a start on the day while most of the world is still asleep. You haven't committed yourself to any one 
+        thing in the mornings, and split your time fairly evenly between Ladder, schoolwork and other obligations. You know better than most people your age how little advantages stack up, and a lifetime's 
+        worth of early mornings will add up to a significant edge over your peers.
+*finish
+
+Right now, though, you're dripping on your bedroom floor. You towel off quickly, wringing the water from your…
+
+*fake_choice
+    #Blond hair.
+        *set hairColour "blond"
+    #Black hair.
+        *set hairColour "black"
+    #Brown hair.
+        *set hairColour "brown"
+    #Ginger hair.
+        *set hairColour "ginger"
+    #[i]Input another hair colour.[/i]
+        What colour is your hair?
+
+        *input_text hairColour
+*finish
+
+Your hair is…
+
+*fake_choice
+    #Straight.
+        *set hairType 0
+    #Wavy.
+        *set hairType 1
+    #Curly.
+        *set hairType 2
+    #Coiled.
+        *set hairType 3
+*finish
+
+And it's…
+
+*fake_choice
+    #Shaved.
+        *set hairLength 0    
+    #Cut short.
+        *set hairLength 1
+    #Mid-length, hanging to around your ears.
+        *set hairLength 2
+    #Shoulder-length.
+        *set hairLength 3
+    #Very long.
+        *set hairLength 4
+*finish
+
+This early morning routine is ingrained into your bones by this point: hang your towel up to dry, throw some clothes on, power on your computer and pad down the hall for breakfast while you wait for it 
+to boot.
+
+*if initialMorningChoice = 0
+    *goto_scene 01_grindSoloQueuePath
+*elseif initialMorningChoice = 1
+    *goto playWithFriendsPath
+*elseif initialMorningChoice = 2
+    *goto vodReviewPath
+*elseif initialMorningChoice = 3
+    *goto doSchoolworkPath
+*elseif initialMorningChoice = 4
+    *goto jackOfAllTradesPath

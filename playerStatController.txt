@@ -1,0 +1,279 @@
+*comment SKILL STATS
+*label increaseMechanics
+*params mechanicsIncrease
+*set mechanics +mechanics
+*if mechanics > 100
+	*set mechanics 100
+*return
+
+*label decreaseMechanics
+*params mechanicsDecrease
+*set mechanics -mechanicsDecrease
+*if mechanics < 0
+	*set mechanics 0
+*return
+
+*label increaseTeamfighting
+*params teamfightingIncrease
+*set teamfighting +teamfighting
+*if teamfighting > 100
+	*set teamfighting 100
+*return
+
+*label decreaseTeamfighting
+*params teamfightingDecrease
+*set teamfighting -teamfightingDecrease
+*if teamfighting < 0
+	*set teamfighting 0
+*return
+
+*label increaseShotcalling
+*params shotcallingIncrease
+*set shotcalling +shotcalling
+*if shotcalling > 100
+	*set shotcalling 100
+*return
+
+*label decreaseShotcalling
+*params shotcallingDecrease
+*set shotcalling -shotcallingDecrease
+*if shotcalling < 0
+	*set shotcalling 0
+*return
+
+*label increaseStrategy
+*params strategyIncrease
+*set strategy +strategy
+*if strategy > 100
+	*set strategy 100
+*return
+
+*label decreaseStrategy
+*params strategyDecrease
+*set strategy -strategyDecrease
+*if strategy < 0
+	*set strategy 0
+*return
+
+*label increaseLaning
+*params laningIncrease
+*set laning +laning
+*if laning > 100
+	*set laning 100
+*return
+
+*label decreaseLaning
+*params laningDecrease
+*set laning -laningDecrease
+*if laning < 0
+	*set laning 0
+*return
+
+*label increaseRoaming
+*params roamingIncrease
+*set roaming +roaming
+*if roaming > 100
+	*set roaming 100
+*return
+
+*label decreaseRoaming
+*params roamingDecrease
+*set roaming -roamingDecrease
+*if roaming < 0
+	*set roaming 0
+*return
+
+*label increaseCharisma
+*params charismaIncrease
+*set charisma +charisma
+*if charisma > 100
+	*set charisma 100
+*return
+
+*label decreaseCharisma
+*params charismaDecrease
+*set charisma -charismaDecrease
+*if charisma < 0
+	*set charisma 0
+*return
+
+*label getMostDominantSkillStat
+*if mechanics > highestSkillStatVal
+	*set highestSkillStatName mechanicsStatName
+	*set highestSkillStatVal mechanics
+
+*if teamfighting > highestSkillStatVal
+	*set highestSkillStatName teamFightingStatName
+	*set highestSkillStatVal teamfighting
+
+*if shotcalling > highestSkillStatVal
+	*set highestSkillStatName shotcallingStatName
+	*set highestSkillStatVal shotcalling
+
+*if strategy > highestSkillStatVal
+	*set highestSkillStatName strategyStatName
+	*set highestSkillStatVal strategy
+
+*if laning > highestSkillStatVal
+	*set highestSkillStatName laningStatName
+	*set highestSkillStatVal laning	
+
+*if roaming > highestSkillStatVal
+	*set highestSkillStatName roamingStatName
+	*set highestSkillStatVal roaming
+
+*if charisma > highestSkillStatVal
+	*set highestSkillStatName charismaStatName
+	*set highestSkillStatVal charisma
+*return
+
+*comment PERSONALITY STATS
+*label increaseCalm
+*params calmVal
+*set calm +calmVal
+*if calm > 100
+	*set calm 100
+*return
+
+*label increaseHotheaded
+*params hotheadedVal
+*set calm -hotheadedVal
+*if calm < 0
+	*set calm 0
+*return
+
+*label increaseOutgoing
+*params outgoingVal
+*set outgoing +outgoingVal
+*if outgoing > 100
+	*set outgoing 100
+*return
+
+*label increaseIntroverted
+*params introvertedVal
+*set outgoing -introvertedVal
+*if outgoing < 0
+	*set outgoing 0
+*return
+
+*label increaseKind
+*params kindVal
+*set kind +kindVal
+*if kind > 100
+	*set kind 100
+*return
+
+*label increaseCruel
+*params cruelVal
+*set kind -cruelVal
+*if kind < 0
+	*set kind 0
+*return
+
+*label increaseJokester
+*params jokesterVal
+*set jokester +jokesterVal
+*if jokester > 100
+	*set jokester 100
+*return
+
+*label increaseSerious
+*params seriousVal
+*set jokester -seriousVal
+*if jokester < 0
+	*set jokester 0
+*return
+
+*label increaseCompetitive
+*params competitiveVal
+*set competitive +competitiveVal
+*if competitive > 100
+	*set competitive 100
+*return
+
+*label increaseRelaxed
+*params relaxedVal
+*set competitive -relaxedVal
+*if competitive < 0
+	*set competitive 0
+*return
+
+*label getMostDominantPersonalityStat
+*temp hotheaded 100 - calm
+*temp introverted 100 - outgoing
+*temp cruel 100 - kind
+*temp serious 100 - jokester
+*temp relaxed 100 - competitive
+
+*if calm > highestPersonalityStatVal
+	*set highestPersonalityStatName calmStatName
+	*set highestPersonalityStatVal calm
+
+*if hotheaded > highestPersonalityStatVal
+	*set highestPersonalityStatName hotheadedStatName
+	*set highestPersonalityStatVal hotheaded
+
+*if outgoing > highestPersonalityStatVal
+	*set highestPersonalityStatName outgoingStatName
+	*set highestPersonalityStatVal outgoing
+
+*if introverted > highestPersonalityStatVal
+	*set highestPersonalityStatName introvertedStatName
+	*set highestPersonalityStatVal introverted
+
+*if kind > highestPersonalityStatVal
+	*set highestPersonalityStatName kindStatName
+	*set highestPersonalityStatVal kind
+
+*if cruel > highestPersonalityStatVal
+	*set highestPersonalityStatName cruelStatName
+	*set highestPersonalityStatVal cruel
+
+*if jokester > highestPersonalityStatVal
+	*set highestPersonalityStatName jokesterStatName
+	*set highestPersonalityStatVal jokester
+
+*if serious > highestPersonalityStatVal
+	*set highestPersonalityStatName seriousStatName
+	*set highestPersonalityStatVal serious
+
+*if competitive > highestPersonalityStatVal
+	*set highestPersonalityStatName competitiveStatName
+	*set highestPersonalityStatVal competitive
+
+*if relaxed > highestPersonalityStatVal
+	*set highestPersonalityStatName relaxedStatName
+	*set highestPersonalityStatVal relaxed
+
+*return
+	
+*comment CAREER STATS
+*label increaseGrades
+*params increaseGradeVal
+*set grades +increaseGradeVal
+*if grades > 100
+	*set grades 100
+*return
+
+*label decreaseGrades
+*params decreaseGradeVal
+*set grades -decreaseGradeVal
+*if grades < 0
+	*set grades 0
+*return
+
+*label increaseFame
+*params increaseFameVal
+*set fame +increaseFameVal
+*if fame > 100
+	*set fame 100
+*return
+
+*label decreaseFame
+*params decreaseFameVal
+*set fame -decreaseFameVal
+*if fame < 0
+	*set fame 0
+*return
+
+

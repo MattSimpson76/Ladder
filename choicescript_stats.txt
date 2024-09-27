@@ -1,0 +1,37 @@
+[b]Personality[/b]
+*stat_chart
+    opposed_pair calm 
+        Calm
+        Hotheaded
+    opposed_pair friendly 
+        Friendly
+        Cold
+    opposed_pair kind 
+        Kind
+        Cruel
+    opposed_pair jokester 
+        Jokester
+        Serious
+    opposed_pair competitive 
+        Competitive
+        Relaxed
+
+Personality stats will never affect which choices you can select, but can determine how you act and are described within scenes. They can also
+result in relationship bonuses or penalties with other characters during the story's various timeskips (as your character
+is assumed to be acting in accordance with their personality stats while "off-screen").
+
+Your personality stats are constantly changing as you make choices.
+
+[b]Skills[/b]
+*stat_chart
+    percent talent Talent
+    percent intelligence Intelligence
+    percent charisma Charisma
+    percent strength Strength
+    percent dexterity Dexterity
+
+Skill stats unlock new choices, and determine how well some always available choices go for your character. 
+
+Each skill stat increases as you make choices that rely on that skill.
+
+*finish Return

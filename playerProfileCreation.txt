@@ -1,0 +1,160 @@
+*label profileCreation_Role
+Ladder — or 'Ladder to the Heavens', to give the game its full, more search engine optimised name — is coming up on its sixth anniversary. In that time it's gone from a small indie 
+game to the indisputable biggest esport in the world. Last year's World Cup had nearly ten million peak concurrent viewers, and a fifty million dollar prize pool. 
+
+A match of Ladder is played between two teams of five. Each individual player controls a single hero, and works with their teammates to collect gold and experience and deny their opponents the same. 
+A game when one team battles their way past their opponent's defenses and destroys their 'Anchor'.
+
+The highest level of regular competition is the regional leagues, where teams compete for a title and a ticket to the World Cup. The American league, the USLA, is considered middling-to-poor as 
+a region; it brings in a lot of money and fan attention, but its representatives have historically been outperformed internationally by Chinese and Korean teams.
+
+A tier below the USLA is the collegiate league, the All-American Ladder Conference. It's relatively new — currently playing its third season — and has been set up in an attempt to support young 
+domestic talent. The ultimate hope of the conference is to produce a generation of players that can lead America to a World Cup once they go pro.
+
+Of course, there's a ways to go before you have to worry about any of that. How long have you been playing Ladder, anyway?
+
+*fake_choice
+	#I'm a veteran. I've been playing since the open beta launched when I was [i]twelve[/i].
+		*set whenStartedPlaying 0
+		*gosub_scene playerStatController increaseStrategy 5
+		You're a veteran, which is maybe a little strange to say given you're barely eighteen. You've picked up a lot of game knowledge in your time, and you're very used to adapting to big patches and 
+		shifting metagames.
+	#I picked it up within the last year or so, but I've improved extremely quickly.
+		*set whenStartedPlaying 1
+		*gosub_scene playerStatController increaseFame 1
+		*gosub_scene playerStatController increaseCompetitive 5
+		*gosub_scene playerStatController decreaseStrategy 5
+		You're pretty new to Ladder in the grand scheme of things, but you've improved explosively. There's even a little bit of buzz about you as a hot new prospect, given that you managed to break into 
+		the top 200 in your first year. It's not all good news though — there's no substitute for experience, and you sometimes struggle to keep up with the game knowledge of those who have just been at 
+		this longer than you.
+	#I've been playing for a couple of years now.
+		*set whenStartedPlaying 2
+		You've been playing for a couple of years now, and improved at a steady, sustainable pace. You might not have been the quickest out of the gate, but you're here now, and ready to show people what 
+		you can do.
+*finish
+*label positionChoice
+
+There are three 'lanes' on the Ladder map, corridors that connect the two team's bases. The game doesn't [i]require[/i] that players are positioned in these lanes in any particular way, but there's a 
+well-established meta that breaks each team into five distinct roles. These are:
+
+• The carry, who starts the game weak and grows to become a devastating glass cannon
+• The midlaner, a centrally-positioned damage-dealing role that is expected to work with the jungler to impact the rest of the map
+• The solo laner, who often receives the least help from their teammates in the early game, and usually fulfills a tank or engager role
+• The jungler, who doesn't have a lane and roams the map to assist their teammates and farm NPC monsters, usually fulfilling a tank or engager role
+• The support, who protects the carry through their weak early game and assists their other teammates however possible, usually as a tank or utility hero
+
+Which is your main role?
+
+*fake_choice
+	#I'm a carry.
+		*set position carryEnum
+		You're a carry, often considered the most mechanically demanding role (at least by carry players). You start the game weak, but if you can survive the early game, you'll be the most important 
+		player on the team.
+
+		[b]Recommended skills:[/b] [i]Mechanics[/i], [i]Teamfighting[/i], [i]Laning[/i]
+
+		[b]Note:[/b] There will be opportunities to use all skills in all positions, and excelling in a skill that's not typical for your position can provide unique opportunities. The key skills above are 
+		only recommendations for first time players; feel free to experiment!
+
+		*choice
+			#Yes, I'm a carry.
+				*goto statsChoice
+			#Actually, let me pick again.
+				*goto positionChoice
+		
+	#I'm a midlaner.
+		*set position midEnum
+		You're a midlaner, often considered one of the most influential roles on a team. Midlane heroes are typically damage dealers, but outside of that the role has some of the most flexibility, 
+		allowing you to focus in on assassinating opponents, controlling teamfights, or roaming to support your teammates.
+
+		[b]Recommended skills:[/b] Midlane is one of the most versatile roles; all skills can be useful, though a standard pair would be [i]mechanics[/i] and one of either [i]laning[/i] or [i]roaming[/i].
+
+		[b]Note:[/b] There will be opportunities to use all skills in all positions, and excelling in a skill that's not typical for your position can provide unique opportunities. The key skills above are 
+		only recommendations for first time players; feel free to experiment!
+
+		*choice
+			#Yes, I'm a midlaner.
+				*goto statsChoice
+			#Actually, let me pick again.
+				*goto positionChoice
+	#I'm a solo laner.
+		*set position soloEnum
+		You're a solo laner, the most self-sufficient player on a team. You tend to be given less assistance than other players, and expected to win or neutralize your lane on your own. In the mid 
+		and lategame you'll often be the pillar of teamfights, engaging or frontling so your damage dealers can do their job.
+
+		[b]Recommended skills:[/b] [i]Laning[/i], [i]Teamfighting[/i]
+
+		[b]Note:[/b] There will be opportunities to use all skills in all positions, and excelling in a skill that's not typical for your position can provide unique opportunities. The key skills above are 
+		only recommendations for first time players; feel free to experiment!
+
+		*choice
+			#Yes, I'm a solo laner.
+				*goto statsChoice
+			#Actually, let me pick again.
+				*goto positionChoice
+	#I'm a jungler.
+		*set position junglerEnum
+		You're a jungler, considered one of the most influential roles on the team. Junglers roam the map, ambushing enemies and trying to get their laners ahead, while killing neutral monsters to gain 
+		gold and XP. In the mid and late game junglers typically fulfill tank or engager roles, but some junglers do specialize as damage dealers.
+
+		[b]Recommended skills:[/b] [i]Roaming[/i], [i]Strategy[/i], [i]Mechanics[/i]
+
+		[b]Note:[/b] There will be opportunities to use all skills in all positions, and excelling in a skill that's not typical for your position can provide unique opportunities. The key skills above are 
+		only recommendations for first time players; feel free to experiment!
+
+		*choice
+			#Yes, I'm a jungler.
+				*goto statsChoice
+			#Actually, let me pick again.
+				*goto positionChoice
+	#I'm a support.
+		*set position supportEnum
+		You're a support, the most selfless player on a team. Supports sacrifice individual power to protect and enable their teammates, safeguarding the carry through their weak early game and serving as 
+		tanks or utility in the mid and lategame. Good supports don't just assist their team, but are active playmakers, creating opportunities and controlling the flow of the game.
+
+		[b]Recommended skills:[/b] [i]Roaming[/i], [i]Strategy[/i], [i]Shotcalling[/i]
+
+		[b]Note:[/b] There will be opportunities to use all skills in all positions, and excelling in a skill that's not typical for your position can provide unique opportunities. The key skills above are 
+		only recommendations for first time players; feel free to experiment!
+
+		*choice
+			#Yes, I'm a support.
+				*goto statsChoice
+			#Actually, let me pick again.
+				*goto positionChoice
+
+*label statsChoice
+Ladder is a deep game, and there are many different aspects of it that a pro player needs to master. The key skills you'll be using in your career are:
+
+[b]Mechanics:[/b] Your ability to outplay your opponents, creating opportunities through sheer skill at piloting your hero.
+[b]Teamfighting:[/b] Your ability to fight as part of a unit, engage and disengage the enemy, and get the most out of your whole team's composition.
+[b]Shotcalling:[/b] Your ability to make quick, decisive calls, and have your teammates follow them, adapting to rapidly changing circumstances on the fly.
+[b]Strategy:[/b] Your ability to make big-picture plans and predict enemy actions, as well as general game knowledge.
+[b]Laning:[/b] Your skill at beating or neutralizing your lane opponent, building a steady lead during the early stages of the game.
+[b]Roaming:[/b] Your skill at leaving your lane to make plays elsewhere on the map, getting you and your teammates ahead.
+[b]Charisma:[/b] How likeable and persuasive you are; charisma lets you motivate teammates and endear yourself to coaches. Charisma is less directly impactful on games of Ladder than the other stats here, 
+but is unique in that it can also come in useful in real life situations.
+
+The decisions you make over the course of your next game of Ladder will determine your starting stats. Currently 
+*if showChecks
+	[b]checks are being shown[/b], meaning that all choices will tell you which stats are being tested, improved or penalized. 
+*else
+	[b]checks are not being shown[/b], meaning that choices will not tell you which stats are being tested, improved or penalized. 
+You can change this option at any time in the stats screen.
+
+*page_break
+*return
+
+*label profileCreation_PickBanExplainer
+Before every game of Ladder, each player selects a 'hero' to control for that match. Heroes have different abilities, strengths and weaknesses, and all fulfill different roles within a wider team 
+composition.
+
+At the pro level, hero selection becomes an integral part of the game. Each player gets to ban a hero before any picks occur, preventing them from being selected by either team. The Supernal team then 
+'first-picks' a hero, followed by the Infernal team selecting [i]two[/i] heroes. The teams trade off picking two heroes at a time, until the last stage, where Infernal has only one player left to pick.
+
+The roster of heroes that a player regularly uses is colloquially known as their 'hero pool'. Pro players are expected to have a deep hero pool to avoid being banned out, but in amateur play 'one-trick ponies' 
+are common. These players specialize in one hero to the exclusion of all others, often making them extremely dominant when they get their pick, but leading to them heavily underperforming when they don't.
+
+*page_break
+*return
+			
